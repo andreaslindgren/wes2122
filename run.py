@@ -8,4 +8,4 @@ Hehe
 I would never have thought?
 
 #TODO #3 detta måste fixas!
-
+#TODO #6 OMOEDELBART!
