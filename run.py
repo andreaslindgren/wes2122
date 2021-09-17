@@ -1,3 +1,4 @@
-Helt nytt här!
+msg = 'Hello World'
+num = 3
 
-Detta kommer från main!!
+print(msg,num)
