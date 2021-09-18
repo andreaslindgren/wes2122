@@ -110,3 +110,5 @@ if __name__ == '__main__':
 #db.create_all()
 
 # USE POSTMAN TO SEND REQUESTS
+
+# From tutorial: https://www.youtube.com/watch?v=PTZiDnuC86g
