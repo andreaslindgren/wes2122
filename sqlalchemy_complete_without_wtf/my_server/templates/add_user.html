@@ -12,7 +12,7 @@
 
 <section class="container-fluid">
   <h2>Add new user</h2>
-  <form class="form-inline" method="PUT" action="{{url_for('add_user')}}">
+  <form class="form-inline" method="POST" action="{{url_for('add_user')}}">
   <p>Name: <input type="input" class="form-control" size="50" name="name" placeholder="Name"></p>
   <p>Email: <input type="email" class="form-control" size="50" name="email" placeholder="Email Address"></p>
   <p><button type="submit" class="btn btn-danger">Add</button></p>

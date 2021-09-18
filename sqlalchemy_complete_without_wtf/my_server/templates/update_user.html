@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block headline %}
+    SQLAlchemy – Update user
+{% endblock headline %}
+
+{% block headline_sub %}
+    This is where the user info is updated
+{% endblock headline_sub %}
+
+{% block content %}
+
+<section class="container-fluid">
+  <h2>Update user</h2>
+  <form class="form-inline" method="POST" action="{{url_for('update_user', id=user['id'])}}">
+  <p>Name: <input type="input" class="form-control" size="50" name="name" value="{{user['name']}}"></p>
+  <p>Email: <input type="email" class="form-control" size="50" name="email" value="{{user['email']}}"></p>
+  <p><button type="submit" class="btn btn-danger">Update</button></p>
+  </form>
+</section>
+
+{% endblock content %}

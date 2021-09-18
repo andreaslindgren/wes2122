@@ -58,6 +58,17 @@
   </div>
 </nav>
 
+
+{% for category, message in get_flashed_messages(with_categories=True) %}
+    <div class="container">    
+    <div class="alert alert-{{category}} alert-dismissible">
+        <a href="#" class="close" data-dismiss="{{category}}" aria-label="close">&times;</a>
+        {{message}}
+    </div>
+    </div>
+{% endfor %}
+
+
 <div class="container">    
   {% block content %}{% endblock content %}
 </div><br>

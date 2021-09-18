@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block headline %}
+    SQLAlchemy – Add user
+{% endblock headline %}
+
+{% block headline_sub %}
+    This is where new users are added
+{% endblock headline_sub %}
+
+{% block content %}
+
+<h2>Users</h2>
+  <p>The table below lists the requested users</p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date added</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users%}
+        <tr>
+          <td>{{user['id']}}</td>
+          <td>{{user['name']}}</td>
+          <td>{{user['email']}}</td>
+          <td>{{user['date_added']}}</td>
+          <td>
+            <a href="{{url_for('delete_user', id=user['id'])}}">Delete</a> | 
+            <a href="{{url_for('update_user', id=user['id'])}}">Update</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock content %}
