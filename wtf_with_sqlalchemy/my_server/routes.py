@@ -1,4 +1,5 @@
-from my_server import app
+from my_server import app, db
+from my_server.models import User
 from my_server.forms import RegistrationForm, LoginForm
 from flask import render_template, redirect, url_for, flash
 
@@ -11,6 +12,15 @@ def home():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        new_user = User(
+            username = form.username.data,
+            email = form.email.data,
+            password = form.password.data
+        )
+        
+        db.session.add(new_user)
+        db.session.commit()
+
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('home'))
 
@@ -20,8 +30,9 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == 'me@me.me' and form.password.data == 'password':
-            flash('User successfully logged in!', 'success')
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is not None and user.password == form.password.data:
+            flash(f'User "{user.username}" successfully logged in!', 'success')
             return redirect(url_for('home'))
         else:
             flash(f'Login unsuccessful!', 'warning')

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  WTF with SQLAlchemy List posts
+{% endblock title %}
+  
+
+{% block content %}
+<h1>User posts for {{current_user.username}}</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Date posted</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for post in posts %}
+    <tr>
+      <th scope="row">{{post.id}}</th>
+      <td>{{post.title}}</td>
+      <td>{{post.content}}</td>
+      <td>{{post.date_added}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
